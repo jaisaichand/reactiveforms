@@ -1,0 +1,29 @@
+<div class="container">
+    <form [formGroup]="formex" (ngSubmit)="formSubmitted(formex)" >
+        <div >
+            <p>Enter your name</p>
+            <input type="text" formControlName="name" />
+            <p class="error" *ngIf="formex.controls.name.touched&&formex.controls.name.status=='INVALID'" >Please enter name</p>
+        </div>
+
+        <div>
+            <p>Enter your email</p>
+            <input [placeholder]="formex.controls.email.touched==true&&formex.controls.email.status=='INVALID'?placeholder2:placeholder1" type="text" [class.errInput]="formex.controls.email.touched==true&&formex.controls.email.status=='INVALID'" formControlName="email" />
+            <!-- <p *ngIf="formex.controls.email.touched==true&&formex.controls.email.status=='INVALID'" class="error"  >Please enter valid email</p> -->
+        </div>
+
+        <div>
+            <p>Enter your phone</p>
+            <input  formControlName="phone" />
+            <p *ngIf="formex.controls.phone.touched==true&&formex.controls.phone.status=='INVALID'" class="error"  >Please enter valid phone</p>
+        </div>
+
+        <div>
+            <p>Enter your password</p>
+            <input type="password"  formControlName="pswd" />
+            <p *ngIf="formex.controls.pswd.touched==true&&formex.controls.pswd.status=='INVALID'" class="error"  >Please enter valid password</p>
+        </div>
+
+        <button type="submit" >login</button>
+    </form>
+</div>
